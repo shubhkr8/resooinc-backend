@@ -2,7 +2,6 @@ const CustomError = require('../errors');
 const { isTokenValid } = require('../utils/jwt');
 
 const authenticateUser = async (req, res, next) => {
-  console.log(req, 'abccdd');
   let token;
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith('Bearer')) {
@@ -14,8 +13,6 @@ const authenticateUser = async (req, res, next) => {
   } else if (req.signedCookies.token) {
     token = req.signedCookies.token;
   }
-
-  console.log(token, 'xyzzz');
 
   if (!token) {
     throw new CustomError.UnauthenticatedError('Authentication Invalid');
