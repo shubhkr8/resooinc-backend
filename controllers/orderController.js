@@ -44,6 +44,7 @@ const createOrder = async (req, res) => {
   const order = await Order.create({
     orderItems,
     user: req.user.userId,
+    orderBy: req.user.name,
     name,
     shippingAddress,
     city,

@@ -24,6 +24,7 @@ const OrderSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
+    orderBy: { type: String },
     name: { type: String, required: true },
     shippingAddress: { type: String, required: true },
     city: { type: String, required: true },
